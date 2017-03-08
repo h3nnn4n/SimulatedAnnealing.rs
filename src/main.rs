@@ -9,8 +9,8 @@ struct Point {
 
 fn objective_function(p:Point) -> f64 {
     //return p.x1.powf(2.) + p.x2.powf(2.); // Sphere
-    //return (1.5 - p.x1 + p.x1 * p.x2).powf(2.) + (2.25 - p.x1 + (p.x1 * p.x2).powf(2.)).powf(2.) + (2.625 - p.x1 + (p.x1 * p.x2).powf(3.)).powf(2.); // Beale's
-    return (p.x1 + 2.*p.x2 - 7.).powf(2.) + (2.*p.x1 + p.x2 - 5.).powf(2.); //  Booth's
+    return (1.5 - p.x1 + p.x1 * p.x2).powf(2.) + (2.25 - p.x1 + p.x1 * p.x2.powf(2.)).powf(2.) + (2.625 - p.x1 + p.x1 * p.x2.powf(3.)).powf(2.); // Beale's
+    //return (p.x1 + 2.*p.x2 - 7.).powf(2.) + (2.*p.x1 + p.x2 - 5.).powf(2.); //  Booth's
 }
 
 fn main () {
