@@ -24,9 +24,10 @@ fn rosenbrock(x: &[f64]) -> f64 {
     return x.iter().skip(1).zip(x).fold(0_f64, |sum, (x_next, x)| { sum + 100_f64 * (x_next - x.powi(2)).powi(2) + (x - 1_f64).powi(2) });
 }
 
-//fn sphere(x: &[f64]) -> f64 {
-    //return p.x1.powf(2.) + p.x2.powf(2.);
-//}
+fn sphere(x: &[f64]) -> f64 {
+    let p = x.len() as f64;
+    return x.iter().fold(0_f64, |sum, x| sum + x.powi(2));
+}
 
 //fn beale(x: &[f64]) -> f64 {
     //return (1.5 - p.x1 + p.x1 * p.x2).powf(2.) + (2.25 - p.x1 + p.x1 * p.x2.powf(2.)).powf(2.) + (2.625 - p.x1 + p.x1 * p.x2.powf(3.)).powf(2.); // Beale's
@@ -38,7 +39,8 @@ fn rosenbrock(x: &[f64]) -> f64 {
 
 fn objective_function(p:Point) -> f64 {
     let x: [f64; 2] = [p.x1, p.x2];
-    return rosenbrock(&x); // f(1, ..., 1) = 0
+    return sphere(&x); // f(0, ..., 0) = 0
+    //return rosenbrock(&x); // f(1, ..., 1) = 0
     //return rastrigin(&x); // f(0, ..., 0) = 0
     //return ackely(&x); // f(0, ..., 0) = 0
 }
@@ -86,9 +88,9 @@ fn main () {
         }
 
         //println!("f({0} {1}) = {2}", solution.x1, solution.x2, objective_function(solution));
-        if iter % 1_0 == 0 && iter > 10_000 && solution.x1.abs() < 5.0 && solution.x2.abs() < 5.0  {
-            println!("{3} {0} {1} {2}", solution.x1, solution.x2, objective_function(solution), iter);
-        }
+        //if iter % 1_0 == 0 && iter > 10_000 && solution.x1.abs() < 5.0 && solution.x2.abs() < 5.0  {
+            //println!("{3} {0} {1} {2}", solution.x1, solution.x2, objective_function(solution), iter);
+        //}
     }
 
     //println!("f({0} {1}) = {2}", best.x1, best.x2, objective_function(best));
